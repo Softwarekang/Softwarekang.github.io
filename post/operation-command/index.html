@@ -1,0 +1,267 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>脚本命令大全 | AnKang&#39;s Blob</title>
+
+<link rel="shortcut icon" href="https://softwarekang.github.io/favicon.ico?v=1711613775549">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://softwarekang.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.1/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script> 
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            AnKang&#39;s Blob
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1711613775549"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?583ba0beecf7b216adaf0d7bdde7de8c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    脚本命令大全
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-03-28 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <ul>
+<li><a href="#iterm2">Iterm2</a>
+<ul>
+<li><a href="#%E4%BF%AE%E6%94%B9shell%E9%BB%98%E8%AE%A4%E4%B8%BAzsh">修改Shell默认为zsh</a></li>
+</ul>
+</li>
+<li><a href="#kubenetes-command">Kubenetes command</a>
+<ul>
+<li><a href="#config">config</a>
+<ul>
+<li><a href="#%E8%8E%B7%E5%8F%96kubenetes%E4%B8%8A%E4%B8%8B%E6%96%87">获取kubenetes上下文</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96kubenetes%E5%BD%93%E5%89%8D%E4%B8%8A%E4%B8%8B%E6%96%87">获取Kubenetes当前上下文</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#markdown">Markdown</a>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95%E7%94%9F%E6%88%90">目录生成</a></li>
+</ul>
+</li>
+<li><a href="#git">Git</a>
+<ul>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6">查看忽略文件</a></li>
+<li><a href="#%E6%B8%85%E7%90%86%E5%88%86%E6%94%AF">清理分支</a></li>
+</ul>
+</li>
+<li><a href="#linux-shell">linux shell</a>
+<ul>
+<li><a href="#file">file</a>
+<ul>
+<li><a href="#%E7%94%9F%E6%88%90%E6%96%87%E4%BB%B6">生成文件</a></li>
+<li><a href="#%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F">查看文件大小</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="iterm2">Iterm2</h1>
+<h3 id="修改shell默认为zsh">修改Shell默认为zsh</h3>
+<pre><code class="language-shell">chsh -s /bin/zsh 
+</code></pre>
+<h1 id="kubenetes-command">Kubenetes command</h1>
+<h2 id="config">config</h2>
+<h3 id="获取kubenetes上下文">获取kubenetes上下文</h3>
+<pre><code class="language-shell">kubectl config get-contexts
+</code></pre>
+<h3 id="获取kubenetes当前上下文">获取Kubenetes当前上下文</h3>
+<pre><code class="language-shell">kubectl config current-context
+</code></pre>
+<h1 id="markdown">Markdown</h1>
+<h3 id="目录生成">目录生成</h3>
+<pre><code class="language-shell">doctoc demo.md
+</code></pre>
+<h1 id="git">Git</h1>
+<h3 id="查看忽略文件">查看忽略文件</h3>
+<pre><code class="language-shell"> git status --ignored 
+</code></pre>
+<h3 id="清理分支">清理分支</h3>
+<pre><code class="language-shell">git branch | grep -v &quot;master&quot; | xargs git branch -D
+</code></pre>
+<h1 id="linux-shell">linux shell</h1>
+<h2 id="file">file</h2>
+<h3 id="生成文件">生成文件</h3>
+<pre><code class="language-shell">truncate -s 13M onebox.test
+</code></pre>
+<h3 id="查看文件大小">查看文件大小</h3>
+<pre><code class="language-shell">ls -lht
+</code></pre>
+<!-- more -->
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+
+        
+            
+
+            
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs/dist/disqusjs.css">
+<script src="https://cdn.jsdelivr.net/npm/disqusjs/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'gridea',
+  apikey: 'dQSjhzEdfcUw1IuDFBpcBmEt3Obc4yqQgBFr7euvpDC4P1rb1vNsaOogsCgszPtD',
+}
+if ('https://disqus.com/api/oauth/2.0/authorize/') {
+  options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+            
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Golang、CloudNative、Network、OS</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/Softwarekang" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div>
+    <span id="busuanzi_container_site_pv"> 本站总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    </div>
+</div>
+</body>
+</html>

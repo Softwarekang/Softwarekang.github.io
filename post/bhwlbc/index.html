@@ -1,0 +1,297 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>白话网络编程基础 | AnKang&#39;s Blob</title>
+
+<link rel="shortcut icon" href="https://softwarekang.github.io/favicon.ico?v=1711613775549">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://softwarekang.github.io/styles/main.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"> -->
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.12.0/languages//dart.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script> -->
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+    
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@9.1.1/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script> 
+    
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            AnKang&#39;s Blob
+        </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" id="changeNavbar">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+            <div class="nav-item">
+                
+                <a href="/" class="menu gt-a-link">
+                    首页
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/archives" class="menu gt-a-link">
+                    归档
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/tags" class="menu gt-a-link">
+                    标签
+                </a>
+                
+            </div>
+            
+            <div class="nav-item">
+                
+                <a href="/post/about" class="menu gt-a-link">
+                    关于
+                </a>
+                
+            </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1711613775549"
+                action="/search/">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+<script>
+    /* 移动端导航栏展开/收起切换 */
+    document.getElementById('changeNavbar').onclick = () => {
+        var element = document.getElementById('navbarSupportedContent');
+        if (element.style.display === 'none' || element.style.display === '') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?583ba0beecf7b216adaf0d7bdde7de8c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    白话网络编程基础
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2023-08-31 ·
+                    </time>
+                    
+                        <a href="https://softwarekang.github.io/tag/ALAXlF5DP/" class="post-tags">
+                            # network
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <h3 id="白话">白话</h3>
+<p>大家好，我是编程小灶。首先谈谈落笔这一系列关于Golang网络编程文章的原因，在工作中小灶涉及存储网关开发，在解决一些性能与难点后，小灶觉得应该对网络编程原理做更深入理解，因此基于Golang实现了网络库(<a href="https://github.com/Softwarekang/knetty">Knetty</a>)，同时借用此专栏将Golang网络编程知识做一些沉淀，希望有幸帮助有兴趣/从事Golang网络编程相关的朋友。进入正题....</p>
+<!-- more -->
+<ol>
+<li>本系列文章主要围绕TCP协议。</li>
+<li>本系列文章主要围绕Golang编程语言。</li>
+</ol>
+<h3 id="socket概念">Socket概念</h3>
+<p>谈到网络编程，&quot;Socket&quot;对于大家并不陌生，它也是我们系列文章核心对象，其百度百科的定义为</p>
+<pre><code class="language-txt">所谓套接字(Socket)，就是对网络中不同主机上的应用进程之间进行双向通信的端点的抽象。一个套接字就是网络上进程通信的一端，提供了应用层进程利用网络协议交换数据的机制。从所处的地位来讲，套接字上联应用进程，下联网络协议栈，是应用程序通过网络协议进行通信的接口，是应用程序与网络协议栈进行交互的接口.            
+</code></pre>
+<p>从百科的描述，不难看出Socket处在传输层和应用层之间，是应用程序与网络协议栈进行交互的接口。它在OSI七层模型/网际协议层 的位置如下图所示</p>
+<figure data-type="image" tabindex="1"><img src="https://softwarekang.github.io/post-images/1693492263598.png" alt="" loading="lazy"></figure>
+<center>图一</center>
+<p>从上图右侧网络协议族来看，Socket是应用层进入传输层的接口，同时OSI模型下四层通常由操作系统内核提供，所以Socket在网络通信中也提供分割用户进程与操作系统内核的机制。本系列文章重点也是讲述通过Golang Socket构建支持TCP协议的网络通信框架（后文会详细介绍）。</p>
+<h3 id="如何理解socket套接字">如何理解Socket(套接字)</h3>
+<p>Socket到底是什么，如下方式可以在Golang中创建一个IPV4协议，面向TCP协议的Socket(套接字)</p>
+<pre><code class="language-go">// 第一个参数（协议域) unix.AF_INET 代表 IPV4协议
+// 第二个参数 (套接字类型) unix.SOCK_STREAM 代表 字节流类型
+// 第三个参数（协议） unix.IPPROTO_TCP 代表 TCP协议（默认情况下可以传0）
+SocketFD, err := syscall.Socket(syscall.AF_INET, syscall.SOCK_STREAM,syscall.IPPROTO_TCP)
+	if err != nil {
+		return nil, err
+}
+</code></pre>
+<p>调用syscall.Socket函数操作系统返回了一个与文件描述符类似的非负数fd，我们称之为套接字文件描述符( Socket descriptor ).文章中简称SocketFD</p>
+<p>Golang系统调用提供了诸多网络编程函数如</p>
+<pre><code class="language-go">// 挑选了一些关键函数 
+func Socket(domain, typ, proto int) (fd int, err error)
+func Bind(fd int, sa Sockaddr) (err error)
+func Accept(fd int) (nfd int, sa Sockaddr, err error)
+func Connect(fd int, sa Sockaddr) (err error)
+func Read(fd int, p []byte) (n int, err error)
+func Write(fd int, p []byte) (n int, err error)
+func Close(fd int) (err error)
+.....
+</code></pre>
+<p>如上函数都有一个共同点，即所有行为都是在 SocketFD 基础上进行。依靠如上函数可以完成数据在应用进程和操作系统内核之间的传递，也更直观表达了 Socket是应用程序与网络协议栈进行交互的接口。</p>
+<p>简单来说，Socket在应用进程视角就是一个数字 FD（非负数），客户端和服务端应用进程分别持有SocketFD来完成两个远程进程间的通信。</p>
+<h3 id="socket-基本通信流程">Socket 基本通信流程</h3>
+<p>在正式进入通信流程部分，我们简单回顾一下在网络传输层中，客户端如果寻找到目标服务器并与其建立连接。我们接着上文<a href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3Socket%E5%A5%97%E6%8E%A5%E5%AD%97">如何理解Socket(套接字)</a>中一个IPV4协议域，面向TCP协议的Socket(套接字)来看，创建好SocketFD后，需要调用Connect函数来连接目标服务器。</p>
+<pre><code class="language-go">// 参数一 即客户端通过Socket函数创建的SocketFD
+// 参数二 即网络层需要的套接字地址结构（目标服务器地址）
+func Connect(fd int, sa Sockaddr) (err error)
+</code></pre>
+<p>一个连接本地端口8888的案例，连接时，客户端会选用随机端口与服务端建立连接。</p>
+<pre><code class="language-go">// 设置服务器地址
+	serverAddr := &amp;syscall.SockaddrInet4{
+		Port: 8888,
+		Addr: [4]byte{127, 0, 0, 1},
+	}
+
+	// 连接到服务器
+	syscall.Connect(Socket, serverAddr)
+</code></pre>
+<p>Sockaddr接口定义在源码<a href="https://github.com/golang/go/blob/8ad0a7e7853ffea6140e942ea5f553061d3423c2/src/syscall/syscall_unix.go#L234">syscall_unix.go</a>中，我们挑选了IPV4套接字地址结构在Golang中的定义</p>
+<pre><code class="language-go">// IPV4 协议定义
+type SockaddrInet4 struct {
+	Port int  // 服务器端口
+	Addr [4]byte // 服务器地址 ipv4 结构
+	raw  RawSockaddrInet4 
+}
+
+// 调用内核IPV4协议定义
+type RawSockaddrInet4 struct {
+	Len    uint8 // SizeofSockaddrInet4
+	Family uint8 // AF_INET
+	Port   uint16 // 服务器端口
+	Addr   [4]byte /* in_addr */ 服务器地址
+	Zero   [8]int8 // 默认为空，补充字段
+}
+</code></pre>
+<p>对于服务端而言，在调用bind函数时，需要指定套接字地址结构</p>
+<pre><code class="language-go">// 参数一 即服务端通过Socket函数创建的SocketFD
+// 参数二 即网络层需要的套接字地址结构（本主机地址)
+func Bind(fd int, sa Sockaddr) (err error)
+</code></pre>
+<p>一个绑定本地8888端口的案例</p>
+<pre><code class="language-go">syscall.Bind(fd, &amp;syscall.SockaddrInet4{Port: 8888})
+</code></pre>
+<p>如上客户端和服务端的套接字地址组成了四元祖来辨识一个唯一TCP的网络连接，从客户端角度来看整个连接如下</p>
+<figure data-type="image" tabindex="2"><img src="https://softwarekang.github.io/post-images/1693492323413.png" alt="" loading="lazy"></figure>
+<p>回顾了网络连接如何建立，如下是一个CS模型下TCP  Socket通信的基本过程，图中从上至下，以此展示了服务端和客户端通信的行为。<a href="https://github.com/Softwarekang/pages/blob/main/knetty/code/Socket-1/Socket.go">Golang-Socket-example</a>在unix系统下实现了上图交互过程</p>
+<figure data-type="image" tabindex="3"><img src="https://softwarekang.github.io/post-images/1693492333382.png" alt="" loading="lazy"></figure>
+<center>图二</center>
+<p>上图展示了客户端、服务端通过Socket使用TCP协议完成的一个常见且标准的交互过程。我们本系列网络编程核心也都是围绕如上交互过程做优化。</p>
+<h3 id="浅析tcp连接建立过程">浅析TCP连接建立过程</h3>
+<ol>
+<li>图二中服务端执行listen函数，服务端Socket状态从CLOSED转为LISTEN状态。</li>
+<li>客户端执行connect函数发起连接请求，开始三次握手，当客户端SYN到达服务端，TCP未完成连接队列新增一项，服务端响应客户端SYN.</li>
+<li>三次握手结束第三步（客户端回应服务端SYN的ACK)后，此客户端发起的连接项从未完成队列进入已完成队列尾部。</li>
+<li>服务端accept函数返回已就绪套接字描述符(SocketFD);客户端connect函数正常返回。</li>
+</ol>
+<h3 id="总结">总结</h3>
+<p>在这篇文章中主要介绍了Socket的概念，讲解了套接字是如何上联应用进程，下联网络协议栈。以Golang 中Socket编程为案例讲解了TCP，IPV4协议如何建立连接和基本的通信过程。</p>
+<p>感谢你的阅读，欢迎留言讨论，如何对你有帮助也欢迎推荐给更多的朋友。</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+
+        
+            
+
+            
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs/dist/disqusjs.css">
+<script src="https://cdn.jsdelivr.net/npm/disqusjs/dist/disqus.js"></script>
+
+<div id="disqus_thread"></div>
+
+<script>
+
+var options = {
+  shortname: 'gridea',
+  apikey: 'dQSjhzEdfcUw1IuDFBpcBmEt3Obc4yqQgBFr7euvpDC4P1rb1vNsaOogsCgszPtD',
+}
+if ('https://disqus.com/api/oauth/2.0/authorize/') {
+  options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+}
+var dsqjs = new DisqusJS(options)
+
+</script>
+
+            
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">Golang、CloudNative、Network、OS</div>
+    <div class="social-container">
+        
+            
+                <a href="https://github.com/Softwarekang" target="_blank">
+                    <i class="fab fa-github gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div>
+    <span id="busuanzi_container_site_pv"> 本站总访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+    </div>
+</div>
+
+<script>
+  hljs.highlightAll()
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    </div>
+</div>
+</body>
+</html>
